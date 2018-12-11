@@ -1,0 +1,26 @@
+name: jrnl
+base: core18
+version: 'git'
+summary: A simple command line journal application.
+description: >
+  jrnl is a simple journal application for your command line. Journals are
+  stored as human readable plain text files - you can put them into a
+  Dropbox folder for instant syncing and you can be assured that your journal
+  will still be readable in 2050, when all your fancy iPad journal
+  applications will long be forgotten.
+
+grade: stable
+confinement: strict
+
+parts:
+  jrnl:
+    plugin: python
+    source: .
+    python-packages:
+      - pycrypto>=2.6
+
+apps:
+  jrnl:
+    command: bin/jrnl
+    plugs:
+      - home
